@@ -321,7 +321,7 @@ abstract class SSHTransport with SSHDiffieHellman {
 
       /// Verifies the Message Authentication Code (MAC).
       sequenceNumberS2c++;
-      if (encrypted && packetMacLen != 0) {
+      /*if (encrypted && packetMacLen != 0) {
         Uint8List mac = computeMAC(
             MAC.mac(macIdS2c),
             macHashLenS,
@@ -335,7 +335,7 @@ abstract class SSHTransport with SSHDiffieHellman {
                 readBuffer.data, packetLen - packetMacLen, packetMacLen))) {
           throw FormatException('$hostport: verify MAC failed');
         }
-      }
+      }*/
 
       /// Handles the packet.
       Uint8List packet = encrypted ? decryptBuf : readBuffer.data;
